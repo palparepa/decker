@@ -1,0 +1,388 @@
+body {
+	background: #999;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.selectable {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+body, td, th {
+	font-size: 10pt;
+	font-family: sans-serif;
+}
+
+* {
+	outline: none;
+	white-space: pre;
+}
+input[type=range]::-moz-focus-outer {
+	border: 0;
+}
+input[type=checkbox], input[type=radio] {
+	margin-right: .5em;
+}
+::-moz-focus-inner {
+	border: 0;
+}
+
+button {
+	width: 120px;
+	height: 30px;
+	padding: 0;
+	padding-bottom: 3px;
+	background: #ccc;
+	color: black;
+}
+button.default {
+	outline: 1px solid black;
+}
+button:focus {
+	background: #d5d5d5;
+}
+button:disabled {
+	color: #999;
+}
+button:hover:not(:disabled) {
+	cursor: pointer;
+}
+
+
+#tooltip {
+	z-index: 2;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding-bottom: 3px;
+	text-align: center;
+	font-stretch: normal;
+	font-weight: bold;
+	color: rgba(255,255,255, .6);
+	background-color: rgba(0,0,0, .6);
+	pointer-events: none;
+	visibility: hidden;
+}
+
+
+.popupWrapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+div.popupWrapper:last-of-type {
+	background: rgba(0,0,0,.4);
+}
+
+.popupWrapper > * > * {
+	margin: 0;
+	background: #bbb;
+	padding: 1em;
+	border: 0;
+	border-style: solid;
+	border-left-width: 5px;
+	border-right-width: 5px;
+	border-color: rgba(255,255,255,0.6) rgba(0,0,0,0.4) rgba(0,0,0,0.4) rgba(255,255,255,0.6);
+	box-shadow: 0 0 0 1px black;
+}
+.popupWrapper > * > h2 {
+	background: #7bd;
+	text-align: center;
+	color: white;
+	text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+	padding-top: 0;
+	padding-bottom: 3px;
+}
+.popupWrapper > * > :first-child {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-top-width: 5px;
+}
+.popupWrapper > * > :last-child {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-width: 5px;
+}
+
+#popup_homeview button {
+	width: 28px;
+	height: 28px;
+	border-width: 2px;
+	background: blue url(img/home.png);
+	border-color: rgba(255,255,255,0.4) rgba(0,0,0,0.4) rgba(0,0,0,0.4) rgba(255,255,255,0.4);
+	vertical-align: middle;
+	margin-right: 1em;
+}
+#popup_homeview button:active:hover {
+	background-position-x: 1px;
+	border-color: rgba(0,0,0,0.4) rgba(255,255,255,0.4) rgba(255,255,255,0.4) rgba(0,0,0,0.4);
+}
+#popup_homeview li {
+	list-style-type: none;
+	margin-bottom: 3px;
+}
+
+#popup_charview fieldset button {
+	width: 24px;
+	height: 24px;
+}
+
+
+.flexV {
+	display: flex;
+	flex-direction: column;
+}
+.flexH {
+	display: flex;
+	flex-direction: row;
+}
+
+.restPerc {
+	padding: 0 3px;
+	border: 2px solid;
+	border-color: rgba(0,0,0,0.4) rgba(255,255,255,0.6) rgba(255,255,255,0.6) rgba(0,0,0,0.4);
+}
+
+
+
+.tableList {
+	position: relative;
+	border: 2px solid;
+	border-color: rgba(0,0,0,0.4) rgba(255,255,255,0.6) rgba(255,255,255,0.6) rgba(0,0,0,0.4);
+}
+.tableList > div {
+	background: white;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.tableList table {
+	border-spacing: 0;
+	cursor: default;
+}
+.tableList thead {
+	top: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.tableList thead tr:first-child {
+	pointer-events: auto;
+}
+.tableList thead tr+tr, .tableList tbody tr:first-child {
+	visibility: hidden;
+}
+.tableList th {
+	background: #bbb;
+	border: 2px solid;
+	border-color: rgba(255,255,255,0.6) rgba(0,0,0,0.4) rgba(0,0,0,0.4) rgba(255,255,255,0.6);
+	text-align: left;
+	padding: 2px .5em;
+}
+.tableList td {
+	padding: 0 1em 1px .5em;
+}
+.tableList icon {
+	vertical-align: middle;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: .3em;
+	box-sizing: border-box;
+}
+.tableList tr:nth-child(2n+1) {
+	background: #eee;
+}
+.tableList td, .tableList th {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.tableList .marked td {
+	background-color: #339;
+	color: white;
+}
+
+
+.softwarelist td:first-child, .softwarelist th:first-child {
+	min-width: 150px;
+	max-width: 200px;
+}
+.softwarelist td:nth-child(2), .softwarelist th:nth-child(2) {
+	min-width: 100px;
+}
+.softwarelist td:nth-child(4), .softwarelist th:nth-child(4) {
+	min-width: 50px;
+}
+.softwarelist icon {
+	background-image: url(img/software.png);
+}
+
+.shoplist td, .shoplist th {
+	min-width: 60px;
+}
+.shoplist td:first-child, .shoplist th:first-child {
+	min-width: 300px;
+}
+.shoplist icon {
+	background-image: url(img/items.png);
+}
+
+.contractlist td, .contractlist th {
+	min-width: 60px;
+}
+.contractlist td:first-child, .contractlist th:first-child {
+	min-width: 120px;
+}
+.contractlist td:nth-child(3), .contractlist th:nth-child(3) {
+	min-width: 150px;
+}
+
+.projlist td, .projlist th {
+	min-width: 60px;
+}
+.projlist td:first-child, .projlist th:first-child {
+	min-width: 250px;
+}
+.projlist icon {
+	background-image: url(img/items.png);
+}
+
+.matrixlist td:first-child, .matrixlist th:first-child {
+	min-width: 111px;
+	max-width: 111px;
+}
+.matrixlist td+td, .matrixlist th+th {
+	min-width: 45px;
+	max-width: 45px;
+}
+.matrixlist td+td {
+	padding-left: .5em;
+}
+.matrixlist th {
+	background: #bbb;
+	border: 1px solid;
+	border-color: rgba(255,255,255,0.6) rgba(0,0,0,0.4) rgba(0,0,0,0.4) rgba(255,255,255,0.6);
+	text-align: left;
+	padding: 0 0 0 2px;
+	font-weight: normal;
+}
+.matrixlist td {
+	padding: 0 0 0 0;
+}
+.matrixlist icon {
+	background-image: url(img/software.png);
+}
+
+.transferlist td, .transferlist th {
+	min-width: 70px;
+}
+.transferlist td:first-child, .transferlist th:first-child {
+	min-width: 220px;
+}
+.transferlist td:nth-child(2), .transferlist th:nth-child(2) {
+	min-width: 130px;
+}
+
+.fileaccesslist td, .fileaccesslist th {
+	min-width: 60px;
+}
+.fileaccesslist td:first-child, .fileaccesslist th:first-child {
+	min-width: 100px;
+}
+.fileaccesslist td:nth-child(2), .fileaccesslist th:nth-child(2) {
+	min-width: 160px;
+}
+.fileaccesslist td:last-child, .fileaccesslist th:last-child {
+	min-width: 100px;
+}
+
+
+
+#popup_matrix {
+	font-stretch: condensed;
+}
+#popup_matrix .block {
+	box-sizing: border-box;
+	background: blue;
+	border: 2px solid red;
+	border-color: #66f #007 #007 #66f;
+}
+#popup_matrix .block.cover {
+	border: 1px solid #007;
+	background: #339 no-repeat;
+	background-image: url(img/matrixScrew.png), url(img/matrixScrew.png), url(img/matrixScrew.png), url(img/matrixScrew.png), url(img/matrixScrew.png), url(img/matrixScrew.png);
+	background-position: top left, top, top right, bottom left, bottom, bottom right;
+}
+#popup_matrix .block.cover > * {
+	display: none;
+}
+#popup_matrix button.cover {
+	border: 1px solid #007;
+	background: blue no-repeat;
+	background-image: url(img/matrixScrew.png), url(img/matrixScrew.png), url(img/matrixScrew.png), url(img/matrixScrew.png);
+	background-position: top left, top right, bottom left, bottom right;
+}
+#popup_matrix .inset {
+	border: 2px solid;
+	border-color: #007 #66f #66f #007;
+}
+
+#popup_matrix button {
+	box-sizing: border-box;
+	width: 24px;
+	height: 24px;
+	background: blue;
+	border: 2px solid;
+	border-color: #66f #007 #007 #66f;
+}
+#popup_matrix button:active:hover:not(:disabled) {
+	border-color: #007 #66f #66f #007;
+}
+
+#map16 div {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+#map32 div {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+}
+
+#popup_matrix button.mvButton {
+	background-image: url(img/matrixButtons.png);
+}
+#popup_matrix button.mvButton:disabled {
+	background-position-y: -20px;
+}
+
+
+.btnGroup {
+	text-align: center;
+	margin-top: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.btnGroup > * {
+	margin: 0 .5em;
+}
+.btnGroup > *:first-child {
+	margin-left: 0;
+}
+.btnGroup > *:last-child {
+	margin-right: 0;
+}
+
+fieldset {
+	border: 2px groove #ddd;
+}
+
