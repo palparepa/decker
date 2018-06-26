@@ -167,6 +167,7 @@ div.popupWrapper:last-of-type {
 .tableList table {
 	border-spacing: 0;
 	cursor: default;
+	white-space: normal; /* fixes a Firefox bug */
 }
 .tableList thead {
 	top: 0;
