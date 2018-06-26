@@ -14305,13 +14305,14 @@ var Anim = {};
 			selects[2].options[i] = new Option(i+1, i+1);
 
 		// Select an initial rating of the highest level
-		l_rating = l_nSkill;
 		selects[2].value = l_nSkill;
 
 		// Update source and time
 		FillInMisc();
 	}
 	function FillInMisc() {
+		l_rating = +selects[2].value;
+
 		// Get the complexity
 		let nComplexity;
 		if (l_type === IT_SOFTWARE)
