@@ -14564,8 +14564,8 @@ var Anim = {};
 		spans[0].textContent = l_nBaseTime;
 		spans[1].textContent = l_nFullTime;
 		spans[2].textContent = Math.ceil(l_nBaseTime/2); // hospital time
-		spans[3].textContent = Math.ceil(l_nFullTime/2); // full hospital time
-		spans[4].textContent = l_nBaseHospCost; // hospital cost
+		spans[3].textContent = l_nBaseHospCost; // hospital cost
+		spans[4].textContent = Math.ceil(l_nFullTime/2); // full hospital time
 		spans[5].textContent = l_nFullHospCost; // full hospital cost
 
 		// Enable/disable controls
